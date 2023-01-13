@@ -12,5 +12,4 @@ public interface EmployeeRepository extends CrudRepository<Employee,Integer>{
 
     Employee findById(int id);
 
-    Employee save(Employee employee);
 }
