@@ -1,9 +1,12 @@
 package com.example.dago.controllers;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -18,7 +21,15 @@ public class EmployeeController {
     private EmployeeService employeeService;
 
     @GetMapping("/")
-	public List<Employee> index() {
-        return employeeService.findAllEmployees();
+	public List<Employee> findAllEmployee() {
+        return employeeService.findAll();
 	}
+
+     // Save operation
+    @PostMapping("/")
+    public Employee saveEmployee(@RequestBody Employee employee){
+        employee.setStartDate(new Date());
+        return employeeService.save(employee);
+    }
+
 }

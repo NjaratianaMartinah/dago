@@ -9,6 +9,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import org.springframework.lang.NonNull;
 
 import lombok.Data;
 
@@ -22,8 +23,8 @@ public class Employee {
 
     private String name;
 
-    @Column
-    @Temporal(TemporalType.DATE)
+    @Temporal(TemporalType.TIMESTAMP)
+    @Column(columnDefinition = "TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP")
     private Date startDate;
 
     public Employee(String name, Date startDate){
