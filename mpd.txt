@@ -1,0 +1,36 @@
+Employee
+- id VARCHAR(50)
+- name VARCHAR(100)
+- age TINYINT
+- startDate DATE
+
+Material
+- id VARCHAR(50)
+- startDate DATE
+- type ENUM(TV,PS3,PS4,PC,XBOX,MANSF,MANAF,COMM,ADAP,CABLE,TORCHE,TAPIS)
+- mark VARCHAR(20)
+- price DOUBLE
+- isUsed Boolean
+
+Payment
+- id Varchar(50)
+- date DATE
+- amount DOUBLE
+- startCounter INTEGER
+- endCounter INTEGER
+- diffCouter INTEGER
+- Employee VARCHAR(200)
+
+Spent
+- id VARCHAR(50)
+- date DATE
+- description VARCHAR(300)
+- amount DOUBLE
+- isFixed Boolean
+
+
+
+
+
+
+
