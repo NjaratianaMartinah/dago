@@ -21,4 +21,13 @@ public class PaymentService {
     public Payment create(Payment payment){
         return paymentRepository.save(payment);
     }
+
+    public Payment update(Payment payment, int paymentId) throws Exception{
+        if(paymentRepository.findById(paymentId).isPresent()){
+            payment.setId(paymentId); 
+            paymentRepository.save(payment);
+            return payment;
+        }
+        throw new Exception("Ressource not found with id" + paymentId);
+    }
 }

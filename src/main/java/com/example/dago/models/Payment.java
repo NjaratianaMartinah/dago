@@ -19,7 +19,6 @@ public class Payment {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-
     
     @Temporal(TemporalType.TIMESTAMP)
     @Column(columnDefinition = "TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP")
@@ -43,5 +42,4 @@ public class Payment {
     public void setDiffCounter(){
         this.diffCounter = endCounter - startCounter;
     }
-    
 }

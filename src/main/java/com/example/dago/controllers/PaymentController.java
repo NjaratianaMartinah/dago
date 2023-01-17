@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -41,8 +42,21 @@ public class PaymentController {
     public Payment create(@RequestBody Payment payment){
         payment.setDate(new Date());
         payment.setDiffCounter();
-        System.out.println(payment);
         return paymentService.create(payment);
+    }
+
+    /**
+     * @param payment the new payment
+     * @return the created payment
+     * @throws Exception
+     */
+    @PutMapping("/{id}")
+    public Payment update(@RequestBody Payment payment, @PathVariable int paymentId) throws Exception{
+        try {
+            return paymentService.update(payment, paymentId);
+        } catch (Exception e) {
+            throw e;
+        }
     }
 
 }
