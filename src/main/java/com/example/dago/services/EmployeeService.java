@@ -2,18 +2,18 @@ package com.example.dago.services;
 
 import java.util.List;
 import java.util.Objects;
-
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import com.example.dago.repositories.EmployeeRepository;
 import com.example.dago.models.Employee;
 
 @Service
 public class EmployeeService {
     
-    @Autowired
     EmployeeRepository employeeRepository ;
+
+    public EmployeeService(EmployeeRepository employeeRepository){
+        this.employeeRepository = employeeRepository;
+    }
 
     public List<Employee> findAll(){
         return (List<Employee>)employeeRepository.findAll();

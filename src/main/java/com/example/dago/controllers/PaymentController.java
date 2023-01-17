@@ -15,8 +15,11 @@ import com.example.dago.services.PaymentService;
 public class PaymentController {
     
 
-    @Autowired
     private PaymentService paymentService;
+
+    public PaymentController(PaymentService paymentService){
+        this.paymentService = paymentService;
+    }
 
     /**
      * @param month the month's date of the payement

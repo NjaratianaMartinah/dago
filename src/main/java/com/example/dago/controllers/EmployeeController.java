@@ -20,8 +20,11 @@ import com.example.dago.services.EmployeeService;
 @RequestMapping("/employee")
 public class EmployeeController {
 
-    @Autowired
     private EmployeeService employeeService;
+
+    public EmployeeController(EmployeeService employeeService){
+        this.employeeService = employeeService;
+    }
 
     @GetMapping("/")
 	public List<Employee> findAllEmployee() {
