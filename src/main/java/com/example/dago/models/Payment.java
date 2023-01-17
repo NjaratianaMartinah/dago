@@ -10,7 +10,10 @@ import javax.persistence.Id;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import lombok.Data;
+
 @Entity
+@Data
 public class Payment {
 
     @Id
@@ -23,7 +26,7 @@ public class Payment {
     private Date date;
 
     @Column(name="amount", nullable=false, columnDefinition = "DOUBLE NOT NULL DEFAULT 0")
-    private Double amount;
+    private double amount;
    
     @Column(name="start_counter", nullable=false, columnDefinition = " INT NOT NULL DEFAULT 0")
     private int startCounter;
