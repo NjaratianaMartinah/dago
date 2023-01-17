@@ -14,8 +14,8 @@ public class PaymentService {
         this.paymentRepository = paymentRepository;
     }
 
-    public List<Payment> findMonthlyPayment(){
-        return (List<Payment>) paymentRepository.findByDate(0, 0);
+    public List<Payment> findMonthlyPayment(int month, int year){
+        return (List<Payment>) paymentRepository.findByDate(month, year);
     }
 
     public Payment create(Payment payment){

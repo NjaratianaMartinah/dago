@@ -5,6 +5,5 @@ import org.springframework.stereotype.Repository;
 
 import com.example.dago.models.Employee;
 
-@Repository
 public interface EmployeeRepository extends CrudRepository<Employee,Integer>{
 }

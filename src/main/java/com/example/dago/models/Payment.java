@@ -39,5 +39,9 @@ public class Payment {
 
     @Column(name="responsible", nullable=false, length = 200)
     private String responsible;
+
+    public void setDiffCounter(){
+        this.diffCounter = endCounter - startCounter;
+    }
     
 }

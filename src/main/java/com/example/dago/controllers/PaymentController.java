@@ -2,16 +2,18 @@ package com.example.dago.controllers;
 
 import java.util.Date;
 import java.util.List;
-
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.dago.models.Payment;
 import com.example.dago.services.PaymentService;
 
-@RestController("/payment")
+@RestController
+@RequestMapping("/payment")
 public class PaymentController {
     
 
@@ -26,9 +28,9 @@ public class PaymentController {
      * @param year the year's date of the payement
      * @return a list of Payment in one month
      */
-    @GetMapping("/")
-    public List<Payment> getMonthlyPayment(int month, int year){
-        return paymentService.findMonthlyPayment();
+    @GetMapping("/{month}/{year}")
+    public List<Payment> getMonthlyPayment(@PathVariable int month, @PathVariable int year){
+        return paymentService.findMonthlyPayment(month, year);
     }
 
     /**
@@ -36,8 +38,10 @@ public class PaymentController {
      * @return the created payment
      */
     @PostMapping("/")
-    public Payment create(Payment payment){
+    public Payment create(@RequestBody Payment payment){
         payment.setDate(new Date());
+        payment.setDiffCounter();
+        System.out.println(payment);
         return paymentService.create(payment);
     }
 

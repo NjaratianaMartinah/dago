@@ -8,7 +8,7 @@ import com.example.dago.models.Payment;
 
 public interface PaymentRepository extends CrudRepository<Payment, Integer> {
 
-    @Query(value = "SELECT * FROM payment where MONTH(date) =: month and YEAR(date) =: year ", nativeQuery=true)
+    @Query(value = "SELECT * FROM payment WHERE MONTH(date)=:month and YEAR(date)=:year ", nativeQuery=true)
     List<Payment> findByDate(int month, int year);
 
 }
