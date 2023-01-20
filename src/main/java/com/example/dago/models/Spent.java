@@ -12,7 +12,10 @@ import javax.persistence.Id;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import lombok.Data;
+
 @Entity
+@Data
 public class Spent {
 
     @Id
@@ -31,6 +34,6 @@ public class Spent {
 
     @Enumerated(EnumType.STRING)
     @Column(nullable=false,columnDefinition = "ENUM('FIX', 'EXTRA', 'OTHER') DEFAULT 'FIX'")
-    private SpentType type;
+    private SpentType type = SpentType.FIX;
 
 }

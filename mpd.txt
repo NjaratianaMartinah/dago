@@ -31,6 +31,18 @@ Spent
 
 
 
+Functionnalities
+- getEmployees  OK
+- createEmployeesOK
+- insert paymentOK
+- insert spent
+- update payment
+- get payment(monthly)OK
+- update spent
+- calculate profit
+- calculate rest
+ 
+
 
 
 

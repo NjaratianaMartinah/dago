@@ -46,12 +46,13 @@ public class PaymentController {
     }
 
     /**
-     * @param payment the new payment
-     * @return the created payment
+     * @param payment the new value of the payment
+     * @param payment the id  of the payment to update
+     * @return the updated payment
      * @throws Exception
      */
     @PutMapping("/{id}")
-    public Payment update(@RequestBody Payment payment, @PathVariable int paymentId) throws Exception{
+    public Payment update(@RequestBody Payment payment, @PathVariable("id") int paymentId) throws Exception{
         try {
             return paymentService.update(payment, paymentId);
         } catch (Exception e) {

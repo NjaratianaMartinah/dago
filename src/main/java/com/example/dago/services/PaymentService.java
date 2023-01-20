@@ -25,6 +25,7 @@ public class PaymentService {
     public Payment update(Payment payment, int paymentId) throws Exception{
         if(paymentRepository.findById(paymentId).isPresent()){
             payment.setId(paymentId); 
+            payment.setDiffCounter();
             paymentRepository.save(payment);
             return payment;
         }
